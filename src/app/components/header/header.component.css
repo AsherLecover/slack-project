@@ -1,0 +1,37 @@
+.container{
+    background-color: white;
+    width: 100%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    display: flex;
+    box-shadow: 1px 2px rgb(229, 226, 226);
+
+
+}
+.hrder-boutons{
+    display: flex;
+
+    margin-left: 74%
+}
+p{
+    color: #616061;
+    font-size: 15px;
+    margin: 10px;
+}
+.menu{
+    border: black solid 1px;
+    padding: 5px;
+    border-radius: 5px;
+}
+#user-group{
+    border: #4d394b solid 1px;
+    border-radius: 5px;
+    background-color: #4d394b;
+    width: 40px;
+    height: 40px;
+}
+h3{
+    color: white;
+    text-align: center;
+    margin-top: 10px
+}
