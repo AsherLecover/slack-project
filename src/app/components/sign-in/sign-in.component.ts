@@ -17,10 +17,10 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {
 
     this.registerForm = this.fb.group({
-      firstName: ['', [Validators.required, Validators.minLength(2)]],
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(6)]],
-      }); 
+      }
+      ); 
   }
 
   onSubmit() {

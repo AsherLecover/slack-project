@@ -9,6 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModuleMatrialModule } from './module-matriel/module-matriel.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MainChatRoomComponent } from './components/main-chat-room/main-chat-room.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     SignInComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MainChatRoomComponent
   ],
   imports: [
     BrowserModule,
