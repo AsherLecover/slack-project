@@ -1,1 +1,71 @@
-<p>sign-in works!</p>
+<div  class="container">
+    <div class="first-line">
+        <h1>Sign in to Slack</h1>
+        <h3>Enter your Slack With Email & Password</h3>
+    </div>
+
+    <div class="form-container"> 
+
+  
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" style="width: 40%; margin: 24px;" dir="rtl" action="">
+
+            <div class="user-name" style="margin-bottom: 10px;">
+        <input  id="inputs0"  formControlName="firstName" type="text" placeholder="הזן שם משתמש" [ngClass]="{'has-error' :
+        registerForm.get('firstName').errors &&
+        (registerForm.get('firstName').dirty)}">
+        <span *ngIf="registerForm.get('firstName').errors &&
+        (registerForm.get('firstName').dirty)">
+    
+          <span style="color: red;" *ngIf="registerForm.get('firstName').errors.required">
+            זהו שדה חובה
+          </span>
+    
+          <span style="color: red;" *ngIf="registerForm.get('firstName').errors.minlength">
+            שם פרטי חייב להיות לפחות 2 אותיות
+          </span>
+        </span>
+            </div>
+            <div class="email" style="margin-bottom: 10px;">
+        <input id="inputs2" formControlName="email" type="text" placeholder='הזן כתובת דוא"ל' [ngClass]="{'has-error' :
+        registerForm.get('email').errors &&
+        (registerForm.get('email').dirty)}">
+    
+        <span *ngIf="registerForm.get('email').errors &&
+        (registerForm.get('email').dirty)">
+    
+          <span style="color: red;" *ngIf="registerForm.get('email').errors.required">
+            זהו שדה חובה
+          </span>
+          <span style="color: red;" *ngIf="registerForm.get('email').errors.email">
+            כתובת מייל לא חוקית
+          </span>
+        </span>
+            </div>
+            <div class="password" style="margin-bottom: 10px;">
+        <input id="inputs3" formControlName="password" class="b" type="password" placeholder="הזן סיסמה" [ngClass]="{'has-error' :
+          registerForm.get('password').errors &&
+          (registerForm.get('password').dirty)}">
+    
+        <span *ngIf="registerForm.get('password').errors && (registerForm.get('password').dirty)">
+    
+          <span style="color: red;" *ngIf="registerForm.get('password').errors.required">
+            זהו שדה חובה
+          </span>
+          <span style="color: red;" *ngIf="registerForm.get('password').errors.minlength">
+            סיסמה חייבת להיות בעלת 8 תווים
+          </span>
+        </span>
+            </div>
+    
+        <button  type="submit" style="background-color: #007a5a; width: 270px;" mat-raised-button
+          color="primary">הרשמה</button>
+
+          <!-- <button  type="submit" [disabled]="!registerForm.valid"   style="background-color: #007a5a; width: 260px;" mat-raised-button
+          color="primary">הרשמה</button> -->
+    
+      </form>
+
+    </div>
+
+
+</div>

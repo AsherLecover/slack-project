@@ -8,6 +8,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModuleMatrialModule } from './module-matriel/module-matriel.module';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { ModuleMatrialModule } from './module-matriel/module-matriel.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ModuleMatrialModule
+    ModuleMatrialModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
