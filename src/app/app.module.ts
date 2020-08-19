@@ -10,7 +10,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModuleMatrialModule } from './module-matriel/module-matriel.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MainChatRoomComponent } from './components/main-chat-room/main-chat-room.component';
+import { LogInComponent } from './components/log-in/log-in.component';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -18,16 +22,19 @@ import { MainChatRoomComponent } from './components/main-chat-room/main-chat-roo
     SignInComponent,
     HeaderComponent,
     FooterComponent,
-    MainChatRoomComponent
+    MainChatRoomComponent,
+    LogInComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ModuleMatrialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
   ],
+
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
