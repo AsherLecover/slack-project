@@ -178,7 +178,7 @@
         {{ i.updatedAt.seconds * 1000 | date:'MM-dd-yyyy' }}, 
       </div> -->
 
-      <div *ngFor="let masseage of sortData">
+      <div *ngFor="let masseage of sortData2">
         <p [ngStyle]="{'background-color': masseage.userId == userId && masseage.clinetId == clinetId ? '#dcf8c6' : '#f1f3f0'}  "
           ngClass="masseages" *ngIf="masseage.userId == userId && masseage.clinetId == clinetId
           || masseage.userId == clinetId && masseage.clinetId == userId">

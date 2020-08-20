@@ -8,6 +8,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { MesseagesModel } from '../../models/massages-model';
 import { MassagesService } from '../../servises/massages.service'
 
+
+
 @Component({
   selector: 'app-main-chat-room',
   templateUrl: './main-chat-room.component.html',
@@ -16,6 +18,7 @@ import { MassagesService } from '../../servises/massages.service'
 export class MainChatRoomComponent implements OnInit {
   userArr$: Observable<any>;
   masseageArr$: Observable<any>;
+  masseageArr2$: Observable<any>;
   imgSrc: string = '';
   date = new Date();
   messagePlaceholder: string = ''
@@ -24,6 +27,8 @@ export class MainChatRoomComponent implements OnInit {
   userId: number
   name: string
   arr = []
+  arr2 = []
+  count = 0
 
 
 
@@ -35,32 +40,34 @@ export class MainChatRoomComponent implements OnInit {
 
   ngOnInit(): void {
     this.userArr$ = this.fs.collection('users').valueChanges();
-    this.masseageArr$ = this.fs.collection('masseages').valueChanges();
 
-    this.masseageArr$.pipe(map(res => {
-      let arr = []
+    this.masseageArr2$ = this.fs.collection('messages').valueChanges();
+
+    //------------------------------------
+
+    this.masseageArr2$.pipe(map(res => {
+      let arr2 = []
+      let temp = res[0].count;
       for (let i of res) {
-        arr.push(i)
+        if (i.count >= temp) {
+          temp = i.count
+          this.count = temp
+        }
+        arr2.push(i)
       }
-      this.arr = arr
-
+      this.arr2 = arr2
     })).subscribe()
+
 
     this.userId = this.MassagesSVC.userId;
     this.name = this.MassagesSVC.name
     console.log("this.userId", this.userId);
   }
 
-  get sortData() {
-
-    return this.arr.sort((a, b) => {
-      return a.time - b.time
-    });
-  }
 
   get sortData2() {
-    return this.arr.sort((a, b) => {
-      return <any>new Date(a.time) - <any>new Date(b.time);
+    return this.arr2.sort((a, b) => {
+      return a.count - b.count;
     });
   }
 
@@ -75,13 +82,16 @@ export class MainChatRoomComponent implements OnInit {
   }
 
   addMassege(massege) {
+    this.count++
 
-    this.fs.collection('masseages').add({
+    this.fs.collection('messages').add({
+      count: this.count,
       clinetId: this.MassagesSVC.clinetId,
       userId: this.MassagesSVC.userId,
       massege: massege,
       time: this.date
     });
+    this.count++
 
   }
 }

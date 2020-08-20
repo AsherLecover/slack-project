@@ -11,6 +11,7 @@ import { UserModel } from '../../models/users-model';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable, from } from 'rxjs';
 import { UsersService } from '../../servises/users.service';
+import { MassagesService } from '../../servises/massages.service';
 import { map } from 'rxjs/internal/operators/map';
 
 @Component({
@@ -22,30 +23,31 @@ export class LogInComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   ctrl: FormControl;
-
   users$: Observable<any>;
+  name: string;
 
   constructor(
     private fb: FormBuilder,
     private fs: AngularFirestore,
-    private svc: UsersService
+    private svc: UsersService,
+    private MassagesSVC: MassagesService
   ) { }
 
   ngOnInit(): void {
     this.users$ = this.fs.collection('users').valueChanges();
-
-
-
     this.registerForm = this.fb.group({
       userName: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(4)]],
     });
+    this.name = this.registerForm.value.userName;
+    this.MassagesSVC.name = this.registerForm.value.userName;
   }
 
   onSubmit() {
     if (this.registerForm.valid) {
       this.submitted = true;
+      this.svc.userInList = true;
       this.addUser({
         id: Math.floor(Math.random() * 10000000),
         name: this.registerForm.value.userName,
