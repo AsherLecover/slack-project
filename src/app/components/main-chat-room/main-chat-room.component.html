@@ -1,153 +1,16 @@
-<div class="haeder">
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+<!-- <div class="haeder">
   <span class="user">Welcome {{name}}</span>
-  <!-- <span style="
-      color: #ffffff;
-      font-size: 24px;
-      float: right;
-      margin-right: 1%;
-      margin-top: 10px;
-    " class="material-icons">help_outline</span> -->
 </div>
 <div style="display: flex;">
   <div class="left-menu">
     <div>
       <br /><br /><br />
       <div style="margin-left: 10%;">
-        <!-- <p style="color: #ffffff;">Channel name</p>
-      <p style="color: #ffffff;">user name</p>
-      <br /> -->
-
-        <!-- <div style="display: flex;">
-        <div>
-          <span style="color: #ffffff; font-size: 16px;" class="material-icons">
-            message
-          </span>
-        </div>
-        <span style="color: #350d36;">..</span>
-        <div><span style="color: #ffffff;">Threads</span></div>
-      </div>
-      <p></p>
-
-      <div style="display: flex;">
-        <div>
-          <span style="color: #ffffff; font-size: 16px;" class="material-icons">
-            blur_circular
-          </span>
-        </div>
-        <span>..</span>
-        <div><span style="color: #ffffff;">Mentions & reactions</span></div>
-      </div>
-      <p></p>
-
-      <div style="display: flex;">
-        <div>
-          <span style="color: #ffffff; font-size: 16px;" class="material-icons">
-            account_balance_wallet
-          </span>
-        </div>
-        <span style="color: #350d36;">..</span>
-        <div><span style="color: #ffffff;">Drafts</span></div>
-      </div>
-      <p></p>
-
-      <div style="display: flex;">
-        <div>
-          <span style="color: #ffffff; font-size: 16px;" class="material-icons">
-            turned_in_not
-          </span>
-        </div>
-        <span style="color: #350d36;">..</span>
-        <div><span style="color: #ffffff;">Saved items</span></div>
-      </div>
-      <p></p>
-
-      <div style="display: flex;">
-        <div>
-          <span style="color: #ffffff; font-size: 16px;" class="material-icons">
-            youtube_searched_for
-          </span>
-        </div>
-        <span style="color: #350d36;">..</span>
-        <div><span style="color: #ffffff;">Channel browser </span></div>
-      </div>
-      <p></p>
-
-      <div style="display: flex;">
-        <div>
-          <span style="color: #ffffff; font-size: 16px;" class="material-icons">
-            contacts
-          </span>
-        </div>
-        <span style="color: #350d36;">..</span>
-        <div><span style="color: #ffffff;">People</span></div>
-      </div>
-      <p></p>
-
-      <div style="display: flex;">
-        <div>
-          <span style="color: #ffffff; font-size: 16px;" class="material-icons">
-            apps
-          </span>
-        </div>
-        <span style="color: #350d36;">..</span>
-        <div><span style="color: #ffffff;"> Apps</span></div>
-      </div>
-      <p></p>
-
-      <div style="display: flex;">
-        <div>
-          <span style="color: #ffffff; font-size: 16px;" class="material-icons">
-            filter_none
-          </span>
-        </div>
-        <span style="color: #350d36;">..</span>
-        <div><span style="color: #ffffff;"> Files</span></div>
-      </div>
-      <p></p>
-
-      <div style="display: flex;">
-        <div>
-          <span style="color: #ffffff; font-size: 16px;" class="material-icons">
-            arrow_upward
-          </span>
-        </div>
-        <span style="color: #350d36;">..</span>
-        <div><span style="color: #ffffff;"> Show less</span></div>
-      </div>
-    </div>
-  </div>
-  <hr />
-  <div>
-    <div style="margin-left: 10%;">
-      <div style="display: flex;">
-        <div>
-          <span style="color: #ffffff; font-size: 16px;" class="material-icons">
-            arrow_drop_down
-          </span>
-        </div>
-        <span style="color: #350d36;">..</span>
-        <div><span style="color: #ffffff;">Cannels</span></div>
-        <span style="color: #350d36;">....................</span>
-        <span style="color: #ffffff; font-size: 20px;" class="material-icons">
-          add
-        </span>
-      </div>
-      <p></p>
-
-      <div style="display: flex;">
-        <div>
-          <span style="color: #ffffff; font-size: 16px;" class="material-icons">
-            arrow_drop_down
-          </span>
-        </div>
-        <span style="color: #350d36;">..</span>
-        <div><span style="color: #ffffff;">Direct messages</span></div>
-        <span style="color: #350d36;">.....</span>
-        <span style="color: #ffffff; font-size: 20px;" class="material-icons">
-          add
-        </span>
-      </div> -->
-
         <div *ngFor="let user of userArr$ | async">
           <p (click)="clickUser(user)" style="color: #ffffff; cursor: pointer;">
             {{ user.name }}
@@ -165,7 +28,7 @@
       <textarea id="w3review" type="text" #massege rows="4" cols="140" placeholder={{messagePlaceholder}}></textarea>
     </div>
 
-    d
+
 
     <div class="warrper-sendmassege">
       <div class="inner-sendmassege" (click)="addMassege(massege.value)">
@@ -174,9 +37,7 @@
     </div>
 
     <div class="start-chat-user">
-      <!-- <div *ngFor="let i of sortData"> 
-        {{ i.updatedAt.seconds * 1000 | date:'MM-dd-yyyy' }}, 
-      </div> -->
+
 
       <div *ngFor="let masseage of sortData2">
         <p [ngStyle]="{'background-color': masseage.userId == userId && masseage.clinetId == clinetId ? '#dcf8c6' : '#f1f3f0'}  "
@@ -186,5 +47,139 @@
       </div>
     </div>
   </div>
-  <!-- ----------------------------------------- -->
+</div> -->
+
+
+<!-- -------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------- -->
+
+
+
+
+
+<div class="container app">
+  <div class="row app-one">
+    <div class="col-sm-4 side">
+      <div class="side-one">
+        <div class="row heading">
+          <div class="col-sm-3 col-xs-3 heading-avatar">
+            <div class="heading-avatar-icon">
+              <img src="https://bootdey.com/img/Content/avatar/avatar1.png">
+            </div>
+          </div>
+          <div class="col-sm-1 col-xs-1  heading-dot  pull-right">
+            <i class="fa fa-ellipsis-v fa-2x  pull-right" aria-hidden="true"></i>
+          </div>
+          <div class="col-sm-2 col-xs-2 heading-compose  pull-right">
+            <i class="fa fa-comments fa-2x  pull-right" aria-hidden="true"></i>
+          </div>
+        </div>
+
+        <div class="row searchBox">
+          <div class="col-sm-12 searchBox-inner">
+            <div class="form-group has-feedback">
+              <input id="searchText" type="text" class="form-control" name="searchText" placeholder="Search">
+              <span class="glyphicon glyphicon-search form-control-feedback"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row sideBar">
+
+
+          <!-- ------------------------------------------------------------------------------------------ -->
+
+          <div *ngFor="let user of userArr$ | async" (click)="clickUser(user)" class="row sideBar-body">
+            <div class="col-sm-3 col-xs-3 sideBar-avatar">
+              <div class="avatar-icon">
+                <img src="https://bootdey.com/img/Content/avatar/avatar1.png">
+              </div>
+            </div>
+            <div class="col-sm-9 col-xs-9 sideBar-main">
+              <div class="row">
+                <div class="col-sm-8 col-xs-8 sideBar-name">
+                  <span class="name-meta">
+                    {{ user.name }}</span>
+                </div>
+                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                  <span class="time-meta pull-right">18:18
+                  </span>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+
+
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <div class="col-sm-8 conversation">
+      <div class="row heading">
+        <div class="col-sm-2 col-md-1 col-xs-3 heading-avatar">
+          <div class="heading-avatar-icon">
+            <img src="https://bootdey.com/img/Content/avatar/avatar6.png">
+          </div>
+        </div>
+        <div class="col-sm-8 col-xs-7 heading-name">
+          <a class="heading-name-meta">{{resiverName}}
+          </a>
+          <span class="heading-online">Online</span>
+        </div>
+        <div class="col-sm-1 col-xs-1  heading-dot pull-right">
+          <i class="fa fa-ellipsis-v fa-2x  pull-right" aria-hidden="true"></i>
+        </div>
+      </div>
+
+
+      <div class="row message" id="conversation">
+        <div class="row message-previous">
+          <div class="col-sm-12 previous">
+            <a onclick="previous(this)" id="ankitjain28" name="20">
+              Show Previous Message!
+            </a>
+          </div>
+        </div>
+        <div class="row message-body">
+          <div class="col-sm-12 message-main-receiver">
+            <div>
+              <div *ngFor="let masseage of sortData2" class="message-text">
+                <p [ngStyle]="{'background-color': masseage.userId == userId && masseage.clinetId == clinetId ? '#dcf8c6' : '#f1f3f0'} "
+                  class="masseages" *ngIf="masseage.userId == userId && masseage.clinetId == clinetId
+               || masseage.userId == clinetId && masseage.clinetId == userId">
+                  {{masseage.massege}}
+                </p>
+              </div>
+              <!-- <span class="message-time pull-right"> Sun</span> -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ////////////////////////////////////////////////////////// -->
+
+      <div class="row reply">
+        <div class="col-sm-1 col-xs-1 reply-emojis">
+          <i class="fa fa-smile-o fa-2x"></i>
+        </div>
+        <div class="col-sm-9 col-xs-9 reply-main">
+          <textarea #massege class="form-control" rows="1" id="comment" placeholder={{messagePlaceholder}}></textarea>
+        </div>
+        <div class="col-sm-1 col-xs-1 reply-recording">
+          <i class="fa fa-microphone fa-2x" aria-hidden="true"></i>
+        </div>
+        <div class="col-sm-1 col-xs-1 reply-send">
+          <i (click)="addMassege(massege.value)" class="fa fa-send fa-2x" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

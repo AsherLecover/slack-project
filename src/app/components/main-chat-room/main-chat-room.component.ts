@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
 import { UsersService } from 'src/app/servises/users.service';
 import { Observable, from } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
@@ -15,7 +15,7 @@ import { MassagesService } from '../../servises/massages.service'
   templateUrl: './main-chat-room.component.html',
   styleUrls: ['./main-chat-room.component.css'],
 })
-export class MainChatRoomComponent implements OnInit {
+export class MainChatRoomComponent implements OnInit, AfterViewChecked {
   userArr$: Observable<any>;
   masseageArr$: Observable<any>;
   masseageArr2$: Observable<any>;
@@ -29,6 +29,10 @@ export class MainChatRoomComponent implements OnInit {
   arr = []
   arr2 = []
   count = 0
+  resiverName: string = ''
+
+  container: HTMLElement;
+
 
 
 
@@ -64,6 +68,20 @@ export class MainChatRoomComponent implements OnInit {
     console.log("this.userId", this.userId);
   }
 
+  scrollToBottom(): void {
+    console.log('asasasasasasasas');
+    this.container = document.getElementById("conversation");
+    this.container.scrollTop = this.container.scrollHeight;
+
+  }
+
+
+  ngAfterViewChecked() {
+    console.log("scrool:::::");
+
+    this.scrollToBottom();
+  }
+
 
   get sortData2() {
     return this.arr2.sort((a, b) => {
@@ -79,6 +97,7 @@ export class MainChatRoomComponent implements OnInit {
     console.log("clinetId: ", this.clinetId);
 
     this.messagePlaceholder = `Message ${user.name}`
+    this.resiverName = user.name
   }
 
   addMassege(massege) {
