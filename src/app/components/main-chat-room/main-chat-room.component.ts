@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked, Input } from '@angular/core';
 import { UsersService } from 'src/app/servises/users.service';
 import { Observable, from } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
@@ -22,6 +22,7 @@ export class MainChatRoomComponent implements OnInit, AfterViewChecked {
   imgSrc: string = '';
   date = new Date();
   messagePlaceholder: string = ''
+  userImg: string = ''
 
   clinetId: number
   userId: number
@@ -30,8 +31,9 @@ export class MainChatRoomComponent implements OnInit, AfterViewChecked {
   arr2 = []
   count = 0
   resiverName: string = ''
-
   container: HTMLElement;
+
+
 
 
 
@@ -43,8 +45,8 @@ export class MainChatRoomComponent implements OnInit, AfterViewChecked {
   ) { }
 
   ngOnInit(): void {
-    this.userArr$ = this.fs.collection('users').valueChanges();
 
+    this.userArr$ = this.fs.collection('users').valueChanges();
     this.masseageArr2$ = this.fs.collection('messages').valueChanges();
 
     //------------------------------------
@@ -65,11 +67,12 @@ export class MainChatRoomComponent implements OnInit, AfterViewChecked {
 
     this.userId = this.MassagesSVC.userId;
     this.name = this.MassagesSVC.name
+    this.userImg = this.MassagesSVC.userImg
+
     console.log("this.userId", this.userId);
   }
 
   scrollToBottom(): void {
-    console.log('asasasasasasasas');
     this.container = document.getElementById("conversation");
     this.container.scrollTop = this.container.scrollHeight;
 
@@ -78,7 +81,6 @@ export class MainChatRoomComponent implements OnInit, AfterViewChecked {
 
   ngAfterViewChecked() {
     console.log("scrool:::::");
-
     this.scrollToBottom();
   }
 
@@ -111,6 +113,10 @@ export class MainChatRoomComponent implements OnInit, AfterViewChecked {
       time: this.date
     });
     this.count++
-
   }
+  
+
+ 
+
+ 
 }

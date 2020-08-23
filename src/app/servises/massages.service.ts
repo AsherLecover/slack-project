@@ -13,6 +13,7 @@ export class MassagesService {
   userId: number = 0;
   clinetId: number = 0;
   name: string = ''
+  userImg: string = ''
 
   constructor() { }
 

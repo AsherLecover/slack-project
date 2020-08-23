@@ -25,6 +25,7 @@ export class SignInComponent implements OnInit {
 
   userArr$: Observable<any>;
   userIsInList: boolean = false
+  userImg: string = ''
 
 
 
@@ -32,7 +33,8 @@ export class SignInComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private fs: AngularFirestore,
     private UsersSVC: UsersService,
-    private MassagesSVC: MassagesService
+    private MassagesSVC: MassagesService,
+    private router: Router
   ) {
   }
 
@@ -54,10 +56,13 @@ export class SignInComponent implements OnInit {
           this.UsersSVC.userInList = true
           this.MassagesSVC.userId = res[i].id
           this.MassagesSVC.name = res[i].name
-
+          this.MassagesSVC.userImg = res[i].img
+          this.router.navigate(['/app-main-chat-room'])
         }
+        
       }
     })).subscribe()
+    // this.registerForm.reset()
   }
 }
 
@@ -65,17 +70,16 @@ export class SignInComponent implements OnInit {
 export class LogInGuardService implements CanActivate {
 
   constructor(public router: Router, private userSVC: UsersService) { }
-
   canActivate(): boolean {
     console.log('out', this.userSVC.userInList);
 
     if (this.userSVC.userInList) {
       console.log('in', this.userSVC.userInList);
-
       return true
     }
     else {
       alert("You Entered Worng UserName Or Password\n Try Agian Plaese");
+
       return false
     }
   }

@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: 'app-sign-in', component: SignInComponent },
   { path: 'log-in', component: LogInComponent },
 
-  { path: 'app-main-chat-room', component: MainChatRoomComponent, canActivate: [LogInGuardService] },
+  { path: 'app-main-chat-room', component: MainChatRoomComponent,canActivate: [LogInGuardService]
+   },
 
   { path: '', redirectTo: 'app-sign-in', pathMatch: 'full' },
   { path: '**', redirectTo: 'app-sign-in', pathMatch: 'full' },

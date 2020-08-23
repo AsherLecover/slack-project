@@ -53,10 +53,10 @@ export class LogInComponent implements OnInit {
         name: this.registerForm.value.userName,
         email: this.registerForm.value.email,
         password: this.registerForm.value.password,
-        img:
-          'https://scontent.fsdv1-2.fna.fbcdn.net/v/t1.0-9/60348869_10214248270536232_8767458307741843456_o.jpg?_nc_cat=108&_nc_sid=09cbfe&_nc_ohc=Q97WJfb227oAX8bvQHA&_nc_oc=AQnVQI_SPBC11ZggnLJ5doa2I9YX4U7X18om4Gz-ITPLcCGQGC9Z9ZGuohSWwk_7s8o&_nc_ht=scontent.fsdv1-2.fna&oh=f7fe092ac8a0c9a6b2b4906f734acbcb&oe=5F5D5A6C',
+        img: 'https://scontent.fsdv1-2.fna.fbcdn.net/v/t1.0-9/60348869_10214248270536232_8767458307741843456_o.jpg?_nc_cat=108&_nc_sid=09cbfe&_nc_ohc=Q97WJfb227oAX8bvQHA&_nc_oc=AQnVQI_SPBC11ZggnLJ5doa2I9YX4U7X18om4Gz-ITPLcCGQGC9Z9ZGuohSWwk_7s8o&_nc_ht=scontent.fsdv1-2.fna&oh=f7fe092ac8a0c9a6b2b4906f734acbcb&oe=5F5D5A6C',
       });
     }
+    this.MassagesSVC.userImg = 'https://scontent.fsdv1-2.fna.fbcdn.net/v/t1.0-9/60348869_10214248270536232_8767458307741843456_o.jpg?_nc_cat=108&_nc_sid=09cbfe&_nc_ohc=Q97WJfb227oAX8bvQHA&_nc_oc=AQnVQI_SPBC11ZggnLJ5doa2I9YX4U7X18om4Gz-ITPLcCGQGC9Z9ZGuohSWwk_7s8o&_nc_ht=scontent.fsdv1-2.fna&oh=f7fe092ac8a0c9a6b2b4906f734acbcb&oe=5F5D5A6C'
   }
 
   addUser(user: UserModel) {
